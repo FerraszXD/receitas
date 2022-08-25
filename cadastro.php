@@ -8,7 +8,7 @@
     <body>
         <h1>Coktop - as melhores receitas</h1>
         <h4>Cadastro de receitas</h4>
-        <form action="salvar_reiceita.php" method="POST">
+        <form action="salvar_receita.php" method="POST">
             <div>
                 <label for="titulo">Titulo</label>
                 <input type="text" name="titulo" id="titulo">
