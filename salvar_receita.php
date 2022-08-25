@@ -8,7 +8,7 @@
 
     // Fazer a conexão com o banco de dados
     try{
-        $conexao = new PDO("mysql:host=localhost;dbname=fakenews;charset=utf8", "root", "");
+        $conexao = new PDO("mysql:host=localhost;dbname=Coktop;charset=utf8", "root", "");
     }catch(PDOException $e){
         echo "Não foi possivel conectar ao banco de dados: " . $e->getMessage();
         exit;
@@ -27,8 +27,8 @@
     $consulta = $consulta->execute([
         ':titulo' => $tituloFormulario,
         ':ingredientes' => $ingredientesFormulario,
-        ':autor' => $autorFormulario
-        ':modo_de_preparo' => $modo_de_preparoFormulario
+        ':autor' => $autorFormulario,
+        ':modo_de_preparo' => $modo_de_preparoFormulario,
         ':equipamentos' => $equipamentosFormulario
     ]);
 
