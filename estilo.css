@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(66, 64, 64);
+    background-color: rgb(117, 93, 93);
     font-family: 'helvetica';
 }
 
@@ -26,7 +26,6 @@ form label{
     font-size: 20px;
     display: block;
 }
-
 
 form input{
     display: block;
