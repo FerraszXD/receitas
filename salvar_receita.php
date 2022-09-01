@@ -3,7 +3,7 @@
     $tituloFormulario = $_POST['titulo'];
     $ingredientesFormulario = $_POST['ingredientes'];
     $autorFormulario = $_POST['autor'];
-    $modo_de_preparoFormulario = $_POST['modo_de_preparo'];
+    $modo_preparoFormulario = $_POST['modo_preparo'];
     $equipamentosFormulario = $_POST['equipamentos'];
 
     // Fazer a conexão com o banco de dados
@@ -16,9 +16,9 @@
 
     // Cria a consulta
     $sql = "INSERT INTO receitas 
-                (titulo, ingredientes, autor, modo_de_preparo, equipamentos) 
+                (titulo, ingredientes, autor, modo_preparo, equipamentos) 
             VALUES 
-                (:titulo, :ingredientes, :autor, :modo_de_preparo, :equipamentos)";
+                (:titulo, :ingredientes, :autor, :modo_preparo, :equipamentos)";
 
     // Prepara a consulta para execução
     $consulta = $conexao->prepare($sql);
@@ -28,7 +28,7 @@
         ':titulo' => $tituloFormulario,
         ':ingredientes' => $ingredientesFormulario,
         ':autor' => $autorFormulario,
-        ':modo_de_preparo' => $modo_de_preparoFormulario,
+        ':modo_preparo' => $modo_preparoFormulario,
         ':equipamentos' => $equipamentosFormulario
     ]);
 
