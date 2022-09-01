@@ -7,51 +7,42 @@
     </head>
     <body>
         <h1>Coktop - as melhores receitas</h1>
-        <a href="cadastro.php">Cadastrar nova Receita</a>
+
+        <a href="cadastro.php">Cadastrar nova receita</a>
+
+        <h1>receitas fodas</h1>
+
+        <?php
+            include 'conexao.php'; // Faz a conexão com o banco de dados
+
+            // Criar a consulta
+            $sql = "SELECT * FROM receitas";
+
+            // Executa a consulta no banco de dados
+            $resposta = $conexao->query($sql);
+
+            // Guarda os resultados em uma variável
+            $receitas = $resposta->fetchAll();
+        ?>
+
+        <?php foreach ($receitas as $receita) { // Laço de repetição para as receitas que vieram do banco ?>
+            <div class="receita">
+                <h2> TITULO:<?= $receita['titulo'] ?></h2>
+
+                <p>
+                    AUTOR: <?= $receita['autor'] ?>
+                </p>
+
+                <h3> INGREDIENTES:<?= $receita['ingredientes'] ?></h3>
+
+                <h3> MODO DE PREPARO:<?= $receita['modo_preparo'] ?></h3>
+
+                <h3> EQUIPAMENTOS:<?= $receita['equipamentos'] ?></h3>
+
+                
+
+                <a href="mostra_receita.php?id=<?= $receita['id'] ?>">Ver receita</a>
+            </div>
+        <?php } ?>
     </body>
-
-    <h1> 
-        <title> todas as receitas</title>
-    </h1>
-
-    <?php
-    include 'conexao.php'; //faz a conexao com o banco de dados
-
-//cria a consulta
-$sql = "SELECT * FROM receitas";
-
-//execulta a consulta no banco de dados
-$resposta = $conexao->query($sql);
-
-//guarda os resultados em uma variavel
-$receitas = $resposta->fetchAll();
-?>
-
-<?php foreach ($receitas as $receita) { ?>
-    <div class="ingredientes">
-    <h2><?= $receita['titulo'] ?></h2>
-    <p>
-        
-    <?= $receita['ingredientes']?>
-    </p>
-
-    <p>Autor: <?= $receita['autor'] ?>
-
-    <p>Modo de preparo: <?= $receita['modo_de_preparo'] ?>
-    </p>
-
-    <p>Equipamentos: <?= $receita['equipamentos'] ?>
-    </p>
-
-    </p>
-    </div>
-    <?php }  ?>
-
-
-
-
-
-
-
-
 </html>
