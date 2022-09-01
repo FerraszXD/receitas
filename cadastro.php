@@ -22,8 +22,8 @@
                 <input type="text" name="autor" id="autor">
             </div>
             <div>
-                <label for="modo_de_preparo">Modo De Preparo</label>
-                <input type="text" name="modo_de_preparo" id="modo_de_preparo">
+                <label for="modo_preparo">Modo De Preparo</label>
+                <input type="text" name="modo_preparo" id="modo_preparo">
             </div>
             <div>
                 <label for="equipamentos">Equipamentos</label>
@@ -33,3 +33,4 @@
         </form>
     </body>
 </html>
+
