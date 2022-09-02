@@ -10,7 +10,7 @@
 
         <a href="cadastro.php">Cadastrar nova receita</a>
 
-        <h1>receitas fodas</h1>
+        <h1>Receitas Tops</h1>
 
         <?php
             include 'conexao.php'; // Faz a conexão com o banco de dados
@@ -27,17 +27,12 @@
 
         <?php foreach ($receitas as $receita) { // Laço de repetição para as receitas que vieram do banco ?>
             <div class="receita">
+
                 <h2> TITULO:<?= $receita['titulo'] ?></h2>
 
-                <p>
-                    AUTOR: <?= $receita['autor'] ?>
-                </p>
+                <h2>    AUTOR: <?= $receita['autor'] ?>  <h2>              
 
-                <h3> INGREDIENTES:<?= $receita['ingredientes'] ?></h3>
-
-                <h3> MODO DE PREPARO:<?= $receita['modo_preparo'] ?></h3>
-
-                <h3> EQUIPAMENTOS:<?= $receita['equipamentos'] ?></h3>
+               
 
                 
 
