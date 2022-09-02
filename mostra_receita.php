@@ -1,43 +1,16 @@
 <?php
-    // Pega os valores que vieram do formulário e guarda em variáveis
-    $tituloFormulario = $_POST['titulo'];
-    $ingredientesFormulario = $_POST['ingredientes'];
-    $autorFormulario = $_POST['autor'];
-    $modo_preparoFormulario = $_POST['modo_preparo'];
-    $equipamentosFormulario = $_POST['equipamentos'];
+    include 'conexao.php'; // Faz a conexão com o banco de dados
 
-    // Fazer a conexão com o banco de dados
-    try{
-        $conexao = new PDO("mysql:host=localhost;dbname=Coktop;charset=utf8", "root", "");
-    }catch(PDOException $e){
-        echo "Não foi possivel conectar ao banco de dados: " . $e->getMessage();
-        exit;
-    }
+    $id = $_GET['id'];
 
-    // Cria a consulta
-    $sql = "INSERT INTO receitas 
-                (titulo, ingredientes, autor, modo_preparo, equipamentos) 
-            VALUES 
-                (:titulo, :ingredientes, :autor, :modo_preparo, :equipamentos)";
+    // Criar a consulta
+    $sql = "SELECT * FROM receitas WHERE id = $id";
 
-    // Prepara a consulta para execução
-    $consulta = $conexao->prepare($sql);
+    // Executa a consulta no banco de dados
+    $res = $conexao->query($sql);
 
-    // Passa os valores para a consulta e executa no banco
-    $consulta = $consulta->execute([
-        ':titulo' => $tituloFormulario,
-        ':ingredientes' => $ingredientesFormulario,
-        ':autor' => $autorFormulario,
-        ':modo_preparo' => $modo_preparoFormulario,
-        ':equipamentos' => $equipamentosFormulario
-    ]);
-
-    // Verificar se deu certo
-    if($consulta){
-        $mensagem = "receita cadastrada com sucesso!";
-    }else {
-        $mensagem = "Não foi possivel cadastrar a receita";
-    }
+    // Pega os resultados e guarda na variável
+    $receita = $res->fetch();
 ?>
 
 <!DOCTYPE html>
@@ -45,15 +18,21 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="estilo.css">
-
         <title>Coktop - as melhores receitas</title>
     </head>
     <body>
         <h1>Coktop - as melhores receitas</h1>
+        <hr>
 
-        <div class="mensagem">
-            <h1><?= $mensagem ?></h1>
-        </div>
+        <h2> TITULO:<?= $receita['titulo'] ?></h2>
+
+        <h2> INGREDIENTES:<?=  $receita['ingredientes'] ?></h2>
+
+        <h2> AUTOR:<?= $receita['autor'] ?></h2>
+
+        <h2> MODO DE PREPARO:<?= $receita['modo_preparo'] ?></h2>
+
+        <h2> EQUIPAMENTOS:<?=$receita['equipamentos'] ?></h2>
 
         <div class="voltar">
             <a href="index.php">Voltar</a>
