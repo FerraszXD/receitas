@@ -1,16 +1,16 @@
 body{
-    background-color: rgb(117, 93, 93);
+    background-color: rgba(3, 3, 3, 0.979);
     font-family: 'helvetica';
 }
 
 h1{
-    color: #fff;
+    color: rgb(8, 238, 8);
     text-align: center;
     font-size: 50px;
 }
 
 a{
-    color: #ff00ff;
+    color: #ee2525;
     text-decoration: none;
     font-size: 20px;
 }
@@ -22,7 +22,7 @@ form{
 }
 
 form label{
-    color: #fff;
+    color: rgb(8, 238, 8);
     font-size: 20px;
     display: block;
 }
@@ -44,8 +44,8 @@ form textarea{
 }
 
 form input[type="submit"]{
-    background-color: #ff00ff;
-    color: #fff;
+    background-color: #ee2525;
+    color: rgb(8, 238, 8);
     border: none;
     padding: 10px;
     font-size: 18px;
@@ -54,9 +54,9 @@ form input[type="submit"]{
 }
 
 .mensagem{
-    color: #ff00ff;
+    color: #ee2525;
     text-align: center;
-    border: 2px dashed #ff00ff;
+    border: 2px dashed #ee2525;
     padding: 10px;
     width: 70%;
     margin: 0 auto;
@@ -69,7 +69,18 @@ form input[type="submit"]{
 
 .voltar a{
     padding: 10px;
-    background-color: #ff00ff;
+    background-color: #ee2525;
     border: 2px solid #d00023;
+    color: rgb(8, 238, 8);
+}
+.receita{
+    color: rgb(255, 255, 255);
+    border: 2px dashed rgb(8, 238, 8);
+    padding: 10px;
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+h2, h4{
     color: #fff;
 }
